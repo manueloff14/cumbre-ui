@@ -1,0 +1,292 @@
+---
+import showdown from "showdown";
+import HeaderMobile from "../../HeaderMobile.astro";
+
+const converter = new showdown.Converter();
+const markdown =
+    "## ¡Organiza el flujo de tu logística! Auxiliar de Despachos en SELIGO SAS\n\n¿Te apasiona la logística y te gusta trabajar en un ambiente dinámico y retador? ¿Eres un experto en el manejo de información y la coordinación de entregas? ¡Entonces SELIGO SAS te está buscando!\n\nEn SELIGO SAS, nos dedicamos a brindar soluciones de consultoría y asesoría, y buscamos a un auxiliar de despachos que se una a nuestro equipo para asegurar la eficiencia y la calidad en nuestras operaciones de transporte. \n\n**Un día en la vida de nuestro Auxiliar de Despachos:**\n\nTu día a día estará lleno de acción, ¡no habrá un momento aburrido! Tendrás la oportunidad de:\n\n* **Mantener el control total de las entregas:** Gestionar la información de las entregas en ruta en el sistema EAD, asegurándote de que todo fluya sin contratiempos.\n* **Comunicación clave:** Ser el enlace entre la oficina y los conductores, manteniendo una comunicación constante para garantizar que las entregas se realicen a tiempo y sin ningún problema.\n* **Organización del flujo:** Apoyar en el proceso de despacho, desde la elaboración de solicitudes de transporte hasta la coordinación de cargues y embarques.\n\n**¿Te identificas con estas características?**\n\n* Experiencia comprobada en el sector transporte terrestre de carga masiva, ¡es un requisito indispensable!\n* Manejo de Excel intermedio, ¡vamos a trabajar con datos!\n* Experiencia en sistemas de gestión logística, ¡preferiblemente SILOGTRANS!\n* ¡Tus habilidades de comunicación serán tu mayor arma!\n\n**Beneficios que te harán amar tu trabajo:**\n\n* Salario competitivo: $1.600.000 + auxilio de transporte.\n* Modalidad presencial en nuestras oficinas de Montevideo.\n* Contrato a término fijo por 3 meses, ¡con posibilidad de renovación y de pasar a indefinido después de un año!\n* Horario de trabajo: Lunes a viernes de 8 am a 5 pm y sábados de 8 am a 12 pm.\n\n**¡Si eres un apasionado por la logística y quieres formar parte de un equipo dinámico, no dudes en postular!**\n\n**Envíanos tu hoja de vida y déjanos conocer tu experiencia.**\n\n**SELIGO SAS te espera.**";
+const html = converter.makeHtml(markdown);
+---
+
+<HeaderMobile title="Vacante" />
+<div class="mt-6">
+    <hr />
+    <div class="lg:flex">
+        <div class="lg:w-[70%] lg:mr-4">
+            <h1 class="font-bold text-xl my-3 lg:text-2xl">Auxiliar de despachos</h1>
+            <hr class="hidden lg:block">
+            <div
+                class="flex flex-col items-center bg-gray-900 p-[20px] rounded-xl my-5 border border-white shadow-sm shadow-white lg:hidden"
+            >
+                <img
+                    class="rounded-xl"
+                    src="https://elempleo.blob.core.windows.net/empresasprd/2108663349.gif"
+                    alt=""
+                />
+                <h2 class="font-bold text-lg my-3">SELIGO SAS</h2>
+                <hr />
+                <span>
+                    <strong>Sector</strong>
+                </span>
+                <span class="text-sm text-[#d3d3d3]"
+                    >Consultorías / Asesorías</span
+                >
+            </div>
+            <div class="prose prose-sm prose-invert w-full max-w-none h-full">
+                <div class="w-full h-full" set:html={html} />
+            </div>
+
+            <div class="lg:hidden">
+                <hr class="mt-5" />
+                <h1 class="my-5 font-bold text-lg">Resumen de la vacante</h1>
+                <table
+                    class="min-w-full bg-gray-900 shadow-lg rounded-lg overflow-hidden text-sm"
+                >
+                    <thead>
+                        <tr>
+                            <th
+                                class="bg-blue-600 text-white px-6 py-3 text-left border-b border-gray-700"
+                                >Campo</th
+                            >
+                            <th
+                                class="bg-blue-600 text-white px-6 py-3 text-left border-b border-gray-700"
+                                >Detalle</th
+                            >
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="border-b border-gray-700 px-6 py-3"
+                                >Título</td
+                            >
+                            <td class="border-b border-gray-700 px-6 py-3"
+                                >Auxiliar de despachos</td
+                            >
+                        </tr>
+                        <tr>
+                            <td class="border-b border-gray-700 px-6 py-3"
+                                >URL del Trabajo</td
+                            >
+                            <td class="border-b border-gray-700 px-6 py-3"
+                                ><a
+                                    href="https://www.elempleo.com/co/ofertas-trabajo/auxiliar-de-despachos-1886267896?trabajo=Asistente%20de%20Bodega&highlight=despachos"
+                                    class="text-blue-400 underline"
+                                    >Ver Oferta</a
+                                ></td
+                            >
+                        </tr>
+                        <tr>
+                            <td class="border-b border-gray-700 px-6 py-3"
+                                >Empresa</td
+                            >
+                            <td class="border-b border-gray-700 px-6 py-3"
+                                >SELIGO SAS</td
+                            >
+                        </tr>
+                        <tr>
+                            <td class="border-b border-gray-700 px-6 py-3"
+                                >Salario</td
+                            >
+                            <td class="border-b border-gray-700 px-6 py-3"
+                                >$1,5 a $2 millones</td
+                            >
+                        </tr>
+                        <tr>
+                            <td class="border-b border-gray-700 px-6 py-3"
+                                >Ubicación</td
+                            >
+                            <td class="border-b border-gray-700 px-6 py-3"
+                                >Bogotá</td
+                            >
+                        </tr>
+                        <tr>
+                            <td class="border-b border-gray-700 px-6 py-3"
+                                >Fecha de Publicación</td
+                            >
+                            <td class="border-b border-gray-700 px-6 py-3"
+                                >Publicado 20 Ago 2024</td
+                            >
+                        </tr>
+                        <tr>
+                            <td class="border-b border-gray-700 px-6 py-3"
+                                >Área</td
+                            >
+                            <td class="border-b border-gray-700 px-6 py-3"
+                                >Logística y Distribución</td
+                            >
+                        </tr>
+                        <tr>
+                            <td class="border-b border-gray-700 px-6 py-3"
+                                >Profesión</td
+                            >
+                            <td class="border-b border-gray-700 px-6 py-3"
+                                >Técnico en Logística</td
+                            >
+                        </tr>
+                        <tr>
+                            <td class="border-b border-gray-700 px-6 py-3"
+                                >Tipo de Contrato</td
+                            >
+                            <td class="border-b border-gray-700 px-6 py-3"
+                                >A término fijo por 3 meses renovable</td
+                            >
+                        </tr>
+                        <tr>
+                            <td class="border-b border-gray-700 px-6 py-3"
+                                >Horario</td
+                            >
+                            <td class="border-b border-gray-700 px-6 py-3"
+                                >Lunes a viernes de 8 am a 5 pm y sábados de 8
+                                am a 12 pm</td
+                            >
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-3">Descripción</td>
+                            <td class="px-6 py-3"
+                                >Responsabilidades: Gestión de entregas,
+                                registro de novedades, coordinación de cargues y
+                                embarques.</td
+                            >
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <a href="" class="lg:hidden">
+                <button class="bg-sky-700 w-full p-4 rounded-xl mt-4 font-bold">
+                    Aplicar a la vacante
+                </button>
+            </a>
+        </div>
+        <div class="hidden lg:block w-[40%] ml-4">
+            <div
+                class="flex flex-col items-center bg-gray-900 p-[20px] rounded-xl my-5 border border-white shadow-sm shadow-white"
+            >
+                <img
+                    class="rounded-xl"
+                    src="https://elempleo.blob.core.windows.net/empresasprd/2108663349.gif"
+                    alt=""
+                />
+                <h2 class="font-bold text-lg my-3">SELIGO SAS</h2>
+                <hr />
+                <span>
+                    <strong>Sector</strong>
+                </span>
+                <span class="text-sm text-[#d3d3d3]"
+                    >Consultorías / Asesorías</span
+                >
+            </div>
+            <table
+                class="w-full bg-gray-900 shadow-lg rounded-lg overflow-hidden text-sm"
+            >
+                <thead>
+                    <tr>
+                        <th
+                            class="bg-blue-600 text-white px-6 py-3 text-left border-b border-gray-700"
+                            >Campo</th
+                        >
+                        <th
+                            class="bg-blue-600 text-white px-6 py-3 text-left border-b border-gray-700"
+                            >Detalle</th
+                        >
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="border-b border-gray-700 px-6 py-3"
+                            >Título</td
+                        >
+                        <td class="border-b border-gray-700 px-6 py-3"
+                            >Auxiliar de despachos</td
+                        >
+                    </tr>
+                    <tr>
+                        <td class="border-b border-gray-700 px-6 py-3"
+                            >URL del Trabajo</td
+                        >
+                        <td class="border-b border-gray-700 px-6 py-3"
+                            ><a
+                                href="https://www.elempleo.com/co/ofertas-trabajo/auxiliar-de-despachos-1886267896?trabajo=Asistente%20de%20Bodega&highlight=despachos"
+                                class="text-blue-400 underline">Ver Oferta</a
+                            ></td
+                        >
+                    </tr>
+                    <tr>
+                        <td class="border-b border-gray-700 px-6 py-3"
+                            >Empresa</td
+                        >
+                        <td class="border-b border-gray-700 px-6 py-3"
+                            >SELIGO SAS</td
+                        >
+                    </tr>
+                    <tr>
+                        <td class="border-b border-gray-700 px-6 py-3"
+                            >Salario</td
+                        >
+                        <td class="border-b border-gray-700 px-6 py-3"
+                            >$1,5 a $2 millones</td
+                        >
+                    </tr>
+                    <tr>
+                        <td class="border-b border-gray-700 px-6 py-3"
+                            >Ubicación</td
+                        >
+                        <td class="border-b border-gray-700 px-6 py-3"
+                            >Bogotá</td
+                        >
+                    </tr>
+                    <tr>
+                        <td class="border-b border-gray-700 px-6 py-3"
+                            >Fecha de Publicación</td
+                        >
+                        <td class="border-b border-gray-700 px-6 py-3"
+                            >Publicado 20 Ago 2024</td
+                        >
+                    </tr>
+                    <tr>
+                        <td class="border-b border-gray-700 px-6 py-3">Área</td>
+                        <td class="border-b border-gray-700 px-6 py-3"
+                            >Logística y Distribución</td
+                        >
+                    </tr>
+                    <tr>
+                        <td class="border-b border-gray-700 px-6 py-3"
+                            >Profesión</td
+                        >
+                        <td class="border-b border-gray-700 px-6 py-3"
+                            >Técnico en Logística</td
+                        >
+                    </tr>
+                    <tr>
+                        <td class="border-b border-gray-700 px-6 py-3"
+                            >Tipo de Contrato</td
+                        >
+                        <td class="border-b border-gray-700 px-6 py-3"
+                            >A término fijo por 3 meses renovable</td
+                        >
+                    </tr>
+                    <tr>
+                        <td class="border-b border-gray-700 px-6 py-3"
+                            >Horario</td
+                        >
+                        <td class="border-b border-gray-700 px-6 py-3"
+                            >Lunes a viernes de 8 am a 5 pm y sábados de 8 am a
+                            12 pm</td
+                        >
+                    </tr>
+                    <tr>
+                        <td class="px-6 py-3">Descripción</td>
+                        <td class="px-6 py-3"
+                            >Responsabilidades: Gestión de entregas, registro de
+                            novedades, coordinación de cargues y embarques.</td
+                        >
+                    </tr>
+                </tbody>
+            </table>
+            <a href="">
+                <button class="bg-sky-700 w-full p-4 rounded-xl mt-4 font-bold">
+                    Aplicar a la vacante
+                </button>
+            </a>
+        </div>
+    </div>
+</div>

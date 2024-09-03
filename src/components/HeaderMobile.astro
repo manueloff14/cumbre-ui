@@ -1,0 +1,25 @@
+---
+export interface Props {
+    title: string;
+}
+
+const { title } = Astro.props
+---
+
+<div class="flex items-center justify-between">
+    <div class="flex flex-grow basis-0 lg:hidden">
+        <img
+            class="w-[40px]"
+            src="https://th.bing.com/th/id/R.70ecfdd862bdc3fdbf5715085812f49e?rik=fDJPk4oWTEisvw&pid=ImgRaw&r=0"
+            alt=""
+        />
+    </div>
+    <h1 class="text-lg">
+        <strong>{title}</strong>
+    </h1>
+    <div class="flex flex-grow justify-end basis-0">
+        <a href="">
+            <button class="bg-red-500 py-2 px-4 rounded-xl">Ayuda</button>
+        </a>
+    </div>
+</div>

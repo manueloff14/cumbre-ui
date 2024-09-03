@@ -1,0 +1,77 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<style>
+			* {
+				transition: 0.3s;
+			}
+		</style>
+	</head>
+	<body class="bg-gray-950 text-white lg:flex">
+		<slot />
+		<script>
+			// Mapeo de rutas a IDs de botones, nuevas imágenes y estilos adicionales
+			const buttonsConfig = {
+				"/": {
+					id: "btnInicio",
+					imgSrc: "/img/homeClick.svg",
+					backgroundColor: "transparent", // Cambia a tu color de fondo deseado
+					additionalClasses: ["font-bold", "text-white", "border-b", "border-white", "lg:border-2"], // Clases adicionales
+				},
+				"/buscar": {
+					id: "btnBuscar",
+					imgSrc: "/img/searchClick.svg",
+					backgroundColor: "transparent",
+					additionalClasses: ["font-bold", "text-white", "border-b", "border-white", "lg:border-2"],
+				},
+				"/chat": {
+					id: "btnChat",
+					imgSrc: "/img/chatClick.svg",
+					backgroundColor: "transparent",
+					additionalClasses: ["font-bold", "text-white", "border-b", "border-white", "lg:border-2"],
+				},
+			};
+
+			// Obtener la ruta actual
+			const currentPath = window.location.pathname;
+
+			// Verificar si la ruta actual está en la configuración
+			if (buttonsConfig[currentPath]) {
+				const config = buttonsConfig[currentPath];
+
+				// Seleccionar el botón y la imagen dentro de él
+				const buttonElement = document.querySelector(`#${config.id}`);
+				const imgElement = buttonElement.querySelector("img");
+
+				// Verificar si el botón y la imagen fueron encontrados
+				if (buttonElement && imgElement) {
+					// Cambiar el src de la imagen
+					imgElement.src = config.imgSrc;
+
+					// Aplicar el fondo al botón
+					buttonElement.style.backgroundColor =
+						config.backgroundColor;
+
+					// Agregar clases adicionales al botón
+					config.additionalClasses.forEach((className) => {
+						buttonElement.classList.add(className);
+					});
+				}
+			}
+		</script>
+	</body>
+</html>
