@@ -6,8 +6,8 @@ import tailwind from "@astrojs/tailwind";
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind()],
-  /* output: 'server',
-  adapter: vercel({
+  output: 'server'
+  /*adapter: vercel({
     mode: 'standalone', // Especifica 'standalone' o 'middleware' según tus necesidades
   }), */
 });
