@@ -14,7 +14,7 @@ import Resultados from "./Resultados.astro";
 
 <script>
     $(document).ready(function () {
-        const socket = io("http://localhost:3000"); // Conectar al servidor de WebSockets
+        const socket = io("https://cumbre-server-socket-production.up.railway.app"); // Conectar al servidor de WebSockets
 
         // Al cargar la página, solicitar trabajos y categorías
         socket.emit("getJobsAndCategories");
