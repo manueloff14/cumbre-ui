@@ -19,7 +19,7 @@ const html = converter.makeHtml(markdown);
                 class="flex flex-col items-center bg-gray-900 p-[20px] rounded-xl my-5 border border-white shadow-sm shadow-white lg:hidden"
             >
                 <img
-                    class="rounded-xl"
+                    class="rounded-xl w-[100px] mb-2"
                     src={blog.jobDetails.img_empresa}
                     alt=""
                 />
@@ -106,7 +106,7 @@ const html = converter.makeHtml(markdown);
                                 >Tipo de Contrato</td
                             >
                             <td class="border-b border-gray-700 px-6 py-3"
-                                >A término fijo por 3 meses renovable</td
+                                >{blog.contrato}</td
                             >
                         </tr>
                         <tr>
@@ -114,8 +114,7 @@ const html = converter.makeHtml(markdown);
                                 >Horario</td
                             >
                             <td class="border-b border-gray-700 px-6 py-3"
-                                >Lunes a viernes de 8 am a 5 pm y sábados de 8 am a
-                                12 pm</td
+                                >{blog.horario}</td
                             >
                         </tr>
                     </tbody>
@@ -132,7 +131,7 @@ const html = converter.makeHtml(markdown);
                 class="flex flex-col items-center bg-gray-900 p-[20px] rounded-xl my-5 border border-white shadow-sm shadow-white"
             >
                 <img
-                    class="rounded-xl"
+                    class="rounded-xl w-[100px] mb-2"
                     src={blog.jobDetails.img_empresa}
                     alt=""
                 />
@@ -212,7 +211,7 @@ const html = converter.makeHtml(markdown);
                             >Tipo de Contrato</td
                         >
                         <td class="border-b border-gray-700 px-6 py-3"
-                            >A término fijo por 3 meses renovable</td
+                            >{blog.contrato}</td
                         >
                     </tr>
                     <tr>
@@ -220,8 +219,7 @@ const html = converter.makeHtml(markdown);
                             >Horario</td
                         >
                         <td class="border-b border-gray-700 px-6 py-3"
-                            >Lunes a viernes de 8 am a 5 pm y sábados de 8 am a
-                            12 pm</td
+                            >{blog.horario}</td
                         >
                     </tr>
                 </tbody>

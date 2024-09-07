@@ -22,11 +22,13 @@ async function searchData() {
 
 // Obtener los datos del blog
 const blog = await searchData();
+
+let title = `Trabaja como: ${blog.title} |`
 ---
 
 {
     blog ? (
-        <Layout title="Trabajo">
+        <Layout title={title}>
             <main class="flex w-full">
                 <Header />
                 <div class="w-full p-3 pb-[60px] lg:ml-[25%] xl:ml-[20%] lg:p-6">
