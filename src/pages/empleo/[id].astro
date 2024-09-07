@@ -1,5 +1,40 @@
 ---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import PageTrabajo from "../../components/routes/trabajo/PageTrabajo.astro";
+
 const { id } = Astro.params;
+
+// Función para obtener los datos del blog desde el servidor
+async function searchData() {
+    try {
+        const response = await fetch(`http://localhost:3000/api/blog/${id}`);
+        if (!response.ok) {
+            throw new Error("Blog no encontrado");
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error(error);
+        return null; // Retornar null si ocurre un error
+    }
+}
+
+// Obtener los datos del blog
+const blog = await searchData();
 ---
 
-<div>¡Buen chico, {id}!</div>
+{
+    blog ? (
+        <Layout title="Trabajo">
+            <main class="flex w-full">
+                <Header />
+                <div class="w-full p-3 pb-[60px] lg:ml-[25%] xl:ml-[20%] lg:p-6">
+                    <PageTrabajo blog={blog} />
+                </div>
+            </main>
+        </Layout>
+    ) : (
+        <div>Blog no encontrado</div>
+    )
+}

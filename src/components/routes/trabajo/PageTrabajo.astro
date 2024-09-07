@@ -1,10 +1,10 @@
 ---
+const { blog } = Astro.props;
 import showdown from "showdown";
 import HeaderMobile from "../../HeaderMobile.astro";
 
 const converter = new showdown.Converter();
-const markdown =
-    "## ¡Organiza el flujo de tu logística! Auxiliar de Despachos en SELIGO SAS\n\n¿Te apasiona la logística y te gusta trabajar en un ambiente dinámico y retador? ¿Eres un experto en el manejo de información y la coordinación de entregas? ¡Entonces SELIGO SAS te está buscando!\n\nEn SELIGO SAS, nos dedicamos a brindar soluciones de consultoría y asesoría, y buscamos a un auxiliar de despachos que se una a nuestro equipo para asegurar la eficiencia y la calidad en nuestras operaciones de transporte. \n\n**Un día en la vida de nuestro Auxiliar de Despachos:**\n\nTu día a día estará lleno de acción, ¡no habrá un momento aburrido! Tendrás la oportunidad de:\n\n* **Mantener el control total de las entregas:** Gestionar la información de las entregas en ruta en el sistema EAD, asegurándote de que todo fluya sin contratiempos.\n* **Comunicación clave:** Ser el enlace entre la oficina y los conductores, manteniendo una comunicación constante para garantizar que las entregas se realicen a tiempo y sin ningún problema.\n* **Organización del flujo:** Apoyar en el proceso de despacho, desde la elaboración de solicitudes de transporte hasta la coordinación de cargues y embarques.\n\n**¿Te identificas con estas características?**\n\n* Experiencia comprobada en el sector transporte terrestre de carga masiva, ¡es un requisito indispensable!\n* Manejo de Excel intermedio, ¡vamos a trabajar con datos!\n* Experiencia en sistemas de gestión logística, ¡preferiblemente SILOGTRANS!\n* ¡Tus habilidades de comunicación serán tu mayor arma!\n\n**Beneficios que te harán amar tu trabajo:**\n\n* Salario competitivo: $1.600.000 + auxilio de transporte.\n* Modalidad presencial en nuestras oficinas de Montevideo.\n* Contrato a término fijo por 3 meses, ¡con posibilidad de renovación y de pasar a indefinido después de un año!\n* Horario de trabajo: Lunes a viernes de 8 am a 5 pm y sábados de 8 am a 12 pm.\n\n**¡Si eres un apasionado por la logística y quieres formar parte de un equipo dinámico, no dudes en postular!**\n\n**Envíanos tu hoja de vida y déjanos conocer tu experiencia.**\n\n**SELIGO SAS te espera.**";
+const markdown = blog.jobDescription
 const html = converter.makeHtml(markdown);
 ---
 
@@ -13,7 +13,7 @@ const html = converter.makeHtml(markdown);
     <hr />
     <div class="lg:flex">
         <div class="lg:w-[70%] lg:mr-4">
-            <h1 class="font-bold text-xl my-3 lg:text-2xl">Auxiliar de despachos</h1>
+            <h1 class="font-bold text-xl my-3 lg:text-2xl">{blog.title}</h1>
             <hr class="hidden lg:block">
             <div
                 class="flex flex-col items-center bg-gray-900 p-[20px] rounded-xl my-5 border border-white shadow-sm shadow-white lg:hidden"
@@ -23,7 +23,7 @@ const html = converter.makeHtml(markdown);
                     src="https://elempleo.blob.core.windows.net/empresasprd/2108663349.gif"
                     alt=""
                 />
-                <h2 class="font-bold text-lg my-3">SELIGO SAS</h2>
+                <h2 class="font-bold text-lg my-3">{blog.company}</h2>
                 <hr />
                 <span>
                     <strong>Sector</strong>
@@ -163,16 +163,16 @@ const html = converter.makeHtml(markdown);
             >
                 <img
                     class="rounded-xl"
-                    src="https://elempleo.blob.core.windows.net/empresasprd/2108663349.gif"
+                    src={blog.jobDetails.img_empresa}
                     alt=""
                 />
-                <h2 class="font-bold text-lg my-3">SELIGO SAS</h2>
+                <h2 class="font-bold text-lg my-3">{blog.company}</h2>
                 <hr />
                 <span>
                     <strong>Sector</strong>
                 </span>
                 <span class="text-sm text-[#d3d3d3]"
-                    >Consultorías / Asesorías</span
+                    >{blog.jobDetails.area}</span
                 >
             </div>
             <table
