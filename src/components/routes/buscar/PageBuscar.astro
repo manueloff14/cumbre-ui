@@ -2,10 +2,86 @@
 import Buscador from "./Buscador.astro";
 import HeaderMobile from "../../HeaderMobile.astro";
 import Categorias from "./Categorias.astro";
+import Resultados from "./Resultados.astro";
 ---
 
 <HeaderMobile title="Buscar" />
 <div class="mt-6 w-full">
     <Buscador />
     <Categorias />
+    <Resultados />
 </div>
+
+<script>
+    $(document).ready(function () {
+        const socket = io("http://localhost:3000"); // Conectar al servidor de WebSockets
+
+        // Al cargar la página, solicitar trabajos y categorías
+        socket.emit("getJobsAndCategories");
+
+        // Recibir trabajos y categorías del servidor y mostrarlas
+        socket.on("jobsAndCategoriesData", (data) => {
+            const categoriesList = $("#categoriesList");
+            categoriesList.empty();
+
+            if (data.error) {
+                categoriesList.append(`<li>${data.error}</li>`);
+            } else {
+                // Mostrar un máximo de 10 categorías
+                $.each(data.categories.slice(0, 10), function (index, category) {
+                    categoriesList.append(
+                        `<li class="bg-gray-800 p-3 rounded-xl border-2 border-gray-700">${category}</li>`,
+                    );
+                });
+            }
+        });
+
+        // Detectar cuando el usuario escribe en el input
+        $("#searchInput").on("input", function () {
+            const text = $(this).val();
+
+            if (text.length > 0) {
+                // Ocultar las categorías y mostrar los resultados
+                $("#categoriesList").hide();
+                $("#resultsContainer").show();
+
+                // Enviar el texto al servidor para buscar
+                socket.emit("searchText", text);
+            } else {
+                // Si el input está vacío, mostrar las categorías y ocultar los resultados
+                $("#categoriesList").show();
+                $("#resultsContainer").hide();
+            }
+        });
+
+        // Recibir los resultados de la búsqueda desde el servidor
+        socket.on("searchResults", (results) => {
+            const resultList = $("#resultList");
+            resultList.empty();
+
+            if (results.error) {
+                resultList.append(`<li>${results.error}</li>`);
+            } else if (results.length === 0) {
+                resultList.append("<li>No se encontraron resultados</li>");
+            } else {
+                // Mostrar un máximo de 20 resultados
+                $.each(results.slice(0, 20), function (index, result) {
+                    resultList.append(
+                        `
+                        <a href="/empleo/${result.id}" class="border-2 border-gray-900 rounded-xl mb-2 w-full p-3 block">
+                            <div class="text-left">${result.title || "Título no disponible"}</div>
+                        </a>
+                        `,
+                    );
+                });
+            }
+        });
+
+        // Botón para cerrar los resultados y mostrar las categorías de nuevo
+        $("#closeResults").on("click", function () {
+            $("#resultsContainer").hide();
+            $("#categoriesList").show();
+            $("#searchInput").val(""); // Limpiar el input
+        });
+    });
+</script>
