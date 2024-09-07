@@ -6,8 +6,8 @@ import vercel from '@astrojs/vercel';
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind()],
-  output: 'server',
+  /* output: 'server',
   adapter: vercel({
     mode: 'standalone', // Especifica 'standalone' o 'middleware' según tus necesidades
-  }),
+  }), */
 });
