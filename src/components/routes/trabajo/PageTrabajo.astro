@@ -20,7 +20,7 @@ const html = converter.makeHtml(markdown);
             >
                 <img
                     class="rounded-xl"
-                    src="https://elempleo.blob.core.windows.net/empresasprd/2108663349.gif"
+                    src={blog.jobDetails.img_empresa}
                     alt=""
                 />
                 <h2 class="font-bold text-lg my-3">{blog.company}</h2>
@@ -60,19 +60,7 @@ const html = converter.makeHtml(markdown);
                                 >Título</td
                             >
                             <td class="border-b border-gray-700 px-6 py-3"
-                                >Auxiliar de despachos</td
-                            >
-                        </tr>
-                        <tr>
-                            <td class="border-b border-gray-700 px-6 py-3"
-                                >URL del Trabajo</td
-                            >
-                            <td class="border-b border-gray-700 px-6 py-3"
-                                ><a
-                                    href="https://www.elempleo.com/co/ofertas-trabajo/auxiliar-de-despachos-1886267896?trabajo=Asistente%20de%20Bodega&highlight=despachos"
-                                    class="text-blue-400 underline"
-                                    >Ver Oferta</a
-                                ></td
+                                >{blog.title}</td
                             >
                         </tr>
                         <tr>
@@ -80,7 +68,7 @@ const html = converter.makeHtml(markdown);
                                 >Empresa</td
                             >
                             <td class="border-b border-gray-700 px-6 py-3"
-                                >SELIGO SAS</td
+                                >{blog.company}</td
                             >
                         </tr>
                         <tr>
@@ -88,7 +76,7 @@ const html = converter.makeHtml(markdown);
                                 >Salario</td
                             >
                             <td class="border-b border-gray-700 px-6 py-3"
-                                >$1,5 a $2 millones</td
+                                >{blog.salary}</td
                             >
                         </tr>
                         <tr>
@@ -96,7 +84,7 @@ const html = converter.makeHtml(markdown);
                                 >Ubicación</td
                             >
                             <td class="border-b border-gray-700 px-6 py-3"
-                                >Bogotá</td
+                                >{blog.location}</td
                             >
                         </tr>
                         <tr>
@@ -104,23 +92,13 @@ const html = converter.makeHtml(markdown);
                                 >Fecha de Publicación</td
                             >
                             <td class="border-b border-gray-700 px-6 py-3"
-                                >Publicado 20 Ago 2024</td
+                                >{blog.publish_date}</td
                             >
                         </tr>
                         <tr>
+                            <td class="border-b border-gray-700 px-6 py-3">Profesión</td>
                             <td class="border-b border-gray-700 px-6 py-3"
-                                >Área</td
-                            >
-                            <td class="border-b border-gray-700 px-6 py-3"
-                                >Logística y Distribución</td
-                            >
-                        </tr>
-                        <tr>
-                            <td class="border-b border-gray-700 px-6 py-3"
-                                >Profesión</td
-                            >
-                            <td class="border-b border-gray-700 px-6 py-3"
-                                >Técnico en Logística</td
+                                >{blog.proffesion}</td
                             >
                         </tr>
                         <tr>
@@ -136,22 +114,14 @@ const html = converter.makeHtml(markdown);
                                 >Horario</td
                             >
                             <td class="border-b border-gray-700 px-6 py-3"
-                                >Lunes a viernes de 8 am a 5 pm y sábados de 8
-                                am a 12 pm</td
-                            >
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-3">Descripción</td>
-                            <td class="px-6 py-3"
-                                >Responsabilidades: Gestión de entregas,
-                                registro de novedades, coordinación de cargues y
-                                embarques.</td
+                                >Lunes a viernes de 8 am a 5 pm y sábados de 8 am a
+                                12 pm</td
                             >
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <a href="" class="lg:hidden">
+            <a href={blog.job_url} class="lg:hidden">
                 <button class="bg-sky-700 w-full p-4 rounded-xl mt-4 font-bold">
                     Aplicar a la vacante
                 </button>
@@ -196,18 +166,7 @@ const html = converter.makeHtml(markdown);
                             >Título</td
                         >
                         <td class="border-b border-gray-700 px-6 py-3"
-                            >Auxiliar de despachos</td
-                        >
-                    </tr>
-                    <tr>
-                        <td class="border-b border-gray-700 px-6 py-3"
-                            >URL del Trabajo</td
-                        >
-                        <td class="border-b border-gray-700 px-6 py-3"
-                            ><a
-                                href="https://www.elempleo.com/co/ofertas-trabajo/auxiliar-de-despachos-1886267896?trabajo=Asistente%20de%20Bodega&highlight=despachos"
-                                class="text-blue-400 underline">Ver Oferta</a
-                            ></td
+                            >{blog.title}</td
                         >
                     </tr>
                     <tr>
@@ -215,7 +174,7 @@ const html = converter.makeHtml(markdown);
                             >Empresa</td
                         >
                         <td class="border-b border-gray-700 px-6 py-3"
-                            >SELIGO SAS</td
+                            >{blog.company}</td
                         >
                     </tr>
                     <tr>
@@ -223,7 +182,7 @@ const html = converter.makeHtml(markdown);
                             >Salario</td
                         >
                         <td class="border-b border-gray-700 px-6 py-3"
-                            >$1,5 a $2 millones</td
+                            >{blog.salary}</td
                         >
                     </tr>
                     <tr>
@@ -231,7 +190,7 @@ const html = converter.makeHtml(markdown);
                             >Ubicación</td
                         >
                         <td class="border-b border-gray-700 px-6 py-3"
-                            >Bogotá</td
+                            >{blog.location}</td
                         >
                     </tr>
                     <tr>
@@ -239,21 +198,13 @@ const html = converter.makeHtml(markdown);
                             >Fecha de Publicación</td
                         >
                         <td class="border-b border-gray-700 px-6 py-3"
-                            >Publicado 20 Ago 2024</td
+                            >{blog.publish_date}</td
                         >
                     </tr>
                     <tr>
-                        <td class="border-b border-gray-700 px-6 py-3">Área</td>
+                        <td class="border-b border-gray-700 px-6 py-3">Profesión</td>
                         <td class="border-b border-gray-700 px-6 py-3"
-                            >Logística y Distribución</td
-                        >
-                    </tr>
-                    <tr>
-                        <td class="border-b border-gray-700 px-6 py-3"
-                            >Profesión</td
-                        >
-                        <td class="border-b border-gray-700 px-6 py-3"
-                            >Técnico en Logística</td
+                            >{blog.proffesion}</td
                         >
                     </tr>
                     <tr>
@@ -273,16 +224,9 @@ const html = converter.makeHtml(markdown);
                             12 pm</td
                         >
                     </tr>
-                    <tr>
-                        <td class="px-6 py-3">Descripción</td>
-                        <td class="px-6 py-3"
-                            >Responsabilidades: Gestión de entregas, registro de
-                            novedades, coordinación de cargues y embarques.</td
-                        >
-                    </tr>
                 </tbody>
             </table>
-            <a href="">
+            <a href={blog.job_url}>
                 <button class="bg-sky-700 w-full p-4 rounded-xl mt-4 font-bold">
                     Aplicar a la vacante
                 </button>
