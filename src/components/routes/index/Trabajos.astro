@@ -9,7 +9,7 @@ const { latestJobs, categories } = await response.json();
 const converter = new showdown.Converter();
 ---
 <div class="w-full">
-    <h1 class="font-bold text-lg my-4">Trabajos recién agregados</h1>
+    <h2 class="font-bold text-lg my-4">Trabajos recién agregados</h2>
     <ul id="job-list" class="grid grid-cols-1 lg:grid-cols-2 lg:gap-4">
         {latestJobs.map((job) => (
             <li class="flex">
