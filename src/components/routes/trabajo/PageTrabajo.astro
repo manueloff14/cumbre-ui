@@ -6,6 +6,8 @@ import HeaderMobile from "../../HeaderMobile.astro";
 const converter = new showdown.Converter();
 const markdown = blog.jobDescription
 const html = converter.makeHtml(markdown);
+
+let altImg = `Imagen de ${blog.company}`
 ---
 
 <HeaderMobile title="Vacante" />
@@ -21,7 +23,7 @@ const html = converter.makeHtml(markdown);
                 <img
                     class="rounded-xl w-[100px] mb-2"
                     src={blog.jobDetails.img_empresa}
-                    alt=""
+                    alt={altImg}
                 />
                 <h2 class="font-bold text-lg my-3">{blog.company}</h2>
                 <hr />
@@ -133,7 +135,7 @@ const html = converter.makeHtml(markdown);
                 <img
                     class="rounded-xl w-[100px] mb-2"
                     src={blog.jobDetails.img_empresa}
-                    alt=""
+                    alt={altImg}
                 />
                 <h2 class="font-bold text-lg my-3">{blog.company}</h2>
                 <hr />
