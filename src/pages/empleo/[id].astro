@@ -25,11 +25,12 @@ const blog = await searchData();
 
 let title = `Trabaja como: ${blog.title} |`
 let metaDescription = `Consigue trabajo en ${blog.location} con la empresa ${blog.company}`
+let canonicalUrl = `https://cumbre.icu/empleo/${id}`
 ---
 
 {
     blog ? (
-        <Layout title={title} description={metaDescription}>
+        <Layout title={title} description={metaDescription} canonicalUrl={canonicalUrl}>
             <main class="flex w-full">
                 <Header />
                 <div class="w-full p-3 pb-[60px] lg:ml-[25%] xl:ml-[20%] lg:p-6">
