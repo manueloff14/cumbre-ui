@@ -1,0 +1,17 @@
+---
+const sitemapUrl = "https://cumbre.icu/sitemap.xml"; // Reemplaza con la URL de tu sitemap
+
+// Devolver el archivo robots.txt con el contenido y el encabezado correcto
+const robotsTxt = `
+User-agent: *
+Allow: /
+
+Sitemap: ${sitemapUrl}
+`;
+
+return new Response(robotsTxt, {
+  headers: {
+    "Content-Type": "text/plain",
+  },
+});
+---
