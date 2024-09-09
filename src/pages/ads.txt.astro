@@ -1,0 +1,12 @@
+---
+const adsTxt = `
+google.com, pub-4492898550156535, DIRECT, f08c47fec0942fa0
+`;
+
+// Devolver el archivo ads.txt con el contenido y el encabezado correcto
+return new Response(adsTxt, {
+  headers: {
+    "Content-Type": "text/plain",
+  },
+});
+---
