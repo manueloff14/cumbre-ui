@@ -11,8 +11,28 @@ const { title, description, canonicalUrl } = Astro.props;
 <!doctype html>
 <html lang="es">
 	<head>
+		<!-- Google Tag Manager -->
+		<script>
+			(function (w, d, s, l, i) {
+				w[l] = w[l] || [];
+				w[l].push({
+					"gtm.start": new Date().getTime(),
+					event: "gtm.js",
+				});
+				var f = d.getElementsByTagName(s)[0],
+					j = d.createElement(s),
+					dl = l != "dataLayer" ? "&l=" + l : "";
+				j.async = true;
+				j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+				f.parentNode.insertBefore(j, f);
+			})(window, document, "script", "dataLayer", "GTM-W2BK8QZS");
+		</script>
+		<!-- End Google Tag Manager -->
 		<meta charset="UTF-8" />
-		<meta name="description" content={description || "Descripción por defecto"} />
+		<meta
+			name="description"
+			content={description || "Descripción por defecto"}
+		/>
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/img/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
@@ -27,6 +47,15 @@ const { title, description, canonicalUrl } = Astro.props;
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	</head>
 	<body class="bg-gray-950 text-white lg:flex">
+		<!-- Google Tag Manager (noscript) -->
+		<noscript
+			><iframe
+				src="https://www.googletagmanager.com/ns.html?id=GTM-W2BK8QZS"
+				height="0"
+				width="0"
+				style="display:none;visibility:hidden"></iframe></noscript
+		>
+		<!-- End Google Tag Manager (noscript) -->
 		<slot />
 		<script>
 			// Mapeo de rutas a IDs de botones, nuevas imágenes y estilos adicionales
@@ -35,19 +64,37 @@ const { title, description, canonicalUrl } = Astro.props;
 					id: "btnInicio",
 					imgSrc: "/img/homeClick.svg",
 					backgroundColor: "transparent", // Cambia a tu color de fondo deseado
-					additionalClasses: ["font-bold", "text-white", "border-b", "border-white", "lg:border-2"], // Clases adicionales
+					additionalClasses: [
+						"font-bold",
+						"text-white",
+						"border-b",
+						"border-white",
+						"lg:border-2",
+					], // Clases adicionales
 				},
 				"/buscar": {
 					id: "btnBuscar",
 					imgSrc: "/img/searchClick.svg",
 					backgroundColor: "transparent",
-					additionalClasses: ["font-bold", "text-white", "border-b", "border-white", "lg:border-2"],
+					additionalClasses: [
+						"font-bold",
+						"text-white",
+						"border-b",
+						"border-white",
+						"lg:border-2",
+					],
 				},
 				"/chat": {
 					id: "btnChat",
 					imgSrc: "/img/chatClick.svg",
 					backgroundColor: "transparent",
-					additionalClasses: ["font-bold", "text-white", "border-b", "border-white", "lg:border-2"],
+					additionalClasses: [
+						"font-bold",
+						"text-white",
+						"border-b",
+						"border-white",
+						"lg:border-2",
+					],
 				},
 			};
 
