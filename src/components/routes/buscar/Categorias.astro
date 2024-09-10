@@ -1,3 +1,7 @@
-<ul class="grid grid-cols-1 gap-2 lg:grid-cols-2" id="categoriesList">
+---
+const { id } = Astro.props;  // Usamos destructuración para extraer 'id'
+---
+
+<ul class="grid grid-cols-1 gap-2 lg:grid-cols-2" id={id}>
     <!-- Las categorías serán llenadas dinámicamente por jQuery -->
 </ul>
