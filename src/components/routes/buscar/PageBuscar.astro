@@ -27,8 +27,8 @@ import Resultados from "./Resultados.astro";
         // Al cargar la página, solicitar trabajos y categorías
         socket.emit("getJobsAndCategories");
 
-        $("#loading").show(); // Ocultar la imagen de carga
-        $("#content").hide(); // Mostrar el contenido
+        $("#searchInput").prop("disabled", true);
+        showLoading()
 
         // Mostrar la imagen de carga cuando se envíe una solicitud al servidor
         function showLoading() {
@@ -40,6 +40,7 @@ import Resultados from "./Resultados.astro";
         function hideLoading() {
             $("#loading").hide(); // Ocultar la imagen de carga
             $("#content").show(); // Mostrar el contenido
+            $("#searchInput").prop("disabled", false);
         }
 
         // Al emitir la señal de búsqueda o solicitar categorías, mostrar la imagen de carga
