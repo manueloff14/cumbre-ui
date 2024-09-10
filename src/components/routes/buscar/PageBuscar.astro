@@ -8,19 +8,49 @@ import Resultados from "./Resultados.astro";
 <HeaderMobile title="Buscar" />
 <div class="mt-6 w-full">
     <Buscador />
-    <Categorias id="categoriesList" />
-    <Resultados />
+    <div id="content">
+        <Categorias id="categoriesList" />
+        <Resultados />
+    </div>
+    <!-- Contenedor de la imagen de carga -->
+    <div id="loading" style="" class="text-center mt-6 flex justify-center my-10">
+        <img src="/img/loading.gif" alt="Cargando..." class="w-[30px]" />
+    </div>
 </div>
 
 <script>
     $(document).ready(function () {
-        const socket = io("https://cumbre-server-socket-production.up.railway.app"); // Conectar al servidor de WebSockets
+        const socket = io(
+            "https://cumbre-server-socket-production.up.railway.app",
+        ); // Conectar al servidor de WebSockets
 
         // Al cargar la página, solicitar trabajos y categorías
         socket.emit("getJobsAndCategories");
 
+        $("#loading").show(); // Ocultar la imagen de carga
+        $("#content").hide(); // Mostrar el contenido
+
+        // Mostrar la imagen de carga cuando se envíe una solicitud al servidor
+        function showLoading() {
+            $("#content").hide(); // Ocultar el contenido
+            $("#loading").show(); // Mostrar la imagen de carga
+        }
+
+        // Ocultar la imagen de carga y mostrar el contenido cuando llega la respuesta
+        function hideLoading() {
+            $("#loading").hide(); // Ocultar la imagen de carga
+            $("#content").show(); // Mostrar el contenido
+        }
+
+        // Al emitir la señal de búsqueda o solicitar categorías, mostrar la imagen de carga
+        socket.on("connect", function () {
+            showLoading();
+        });
+
         // Recibir trabajos y categorías del servidor y mostrarlas
         socket.on("jobsAndCategoriesData", (data) => {
+            hideLoading(); // Ocultar la imagen de carga cuando llegue la respuesta
+
             const categoriesList = $("#categoriesList");
             categoriesList.empty();
 
@@ -28,11 +58,14 @@ import Resultados from "./Resultados.astro";
                 categoriesList.append(`<li>${data.error}</li>`);
             } else {
                 // Mostrar un máximo de 10 categorías
-                $.each(data.categories.slice(0, 10), function (index, category) {
-                    categoriesList.append(
-                        `<li class="bg-gray-800 p-3 rounded-xl border-2 border-gray-700">${category}</li>`,
-                    );
-                });
+                $.each(
+                    data.categories.slice(0, 10),
+                    function (index, category) {
+                        categoriesList.append(
+                            `<li class="bg-gray-800 p-3 rounded-xl border-2 border-gray-700">${category}</li>`,
+                        );
+                    },
+                );
             }
         });
 
@@ -45,6 +78,7 @@ import Resultados from "./Resultados.astro";
                 $("#categoriesList").hide();
                 $("#resultsContainer").show();
 
+                showLoading(); // Mostrar imagen de carga al enviar la búsqueda
                 // Enviar el texto al servidor para buscar
                 socket.emit("searchText", text);
             } else {
@@ -56,6 +90,8 @@ import Resultados from "./Resultados.astro";
 
         // Recibir los resultados de la búsqueda desde el servidor
         socket.on("searchResults", (results) => {
+            hideLoading(); // Ocultar imagen de carga cuando lleguen los resultados
+
             const resultList = $("#resultList");
             resultList.empty();
 
