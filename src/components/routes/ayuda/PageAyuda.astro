@@ -1,0 +1,127 @@
+<section>
+    <div class="text-center my-10">
+        <h1 class="font-bold text-3xl mb-2">Acerca de Cumbre</h1>
+        <p class="text-sm mb-3">
+            Cumbre es una plataforma que te facilitará l taarea de buscar empleo
+        </p>
+        <a href="" class="text-sm">
+            <button class="bg-white text-black font-bold p-2 px-4 rounded-xl"
+                >más</button
+            >
+        </a>
+    </div>
+    <div class="w-full flex justify-center mb-10">
+        <img class="w-[70%]" src="https://placehold.co/400x300.png" alt="" />
+    </div>
+</section>
+
+<style>
+    section {
+        ul {
+            li {
+                margin-bottom: 10px;
+                button {
+                    border: 1px solid gray;
+                    width: 100%;
+                    text-align: left;
+                    padding: 10px;
+                    border-radius: 15px;
+                    font-weight: 500;
+                }
+
+                p {
+                    padding: 10px 0px;
+                    padding-left: 10px;
+                    display: none;
+                }
+            }
+        }
+    }
+</style>
+
+<section>
+    <h2 class="font-bold text-xl mb-5">Preguntas frecuentes</h2>
+    <ul>
+        <li>
+            <button class="toggle-btn">
+                <h3>¿Cumbre es gratis?</h3>
+            </button>
+            <p class="answer">Sí, Cumbre es totalmente gratis</p>
+        </li>
+        <li>
+            <button class="toggle-btn">
+                <h3>¿Cumbre es gratis?</h3>
+            </button>
+            <p class="answer">Sí, Cumbre es totalmente gratis</p>
+        </li>
+        <li>
+            <button class="toggle-btn">
+                <h3>¿Cumbre es gratis?</h3>
+            </button>
+            <p class="answer">Sí, Cumbre es totalmente gratis</p>
+        </li>
+        <li>
+            <button class="toggle-btn">
+                <h3>¿Cumbre es gratis?</h3>
+            </button>
+            <p class="answer">Sí, Cumbre es totalmente gratis</p>
+        </li>
+    </ul>
+
+    <script>
+        const buttons = document.querySelectorAll(".toggle-btn");
+
+        buttons.forEach((button) => {
+            button.addEventListener("click", () => {
+                // Oculta todos los párrafos antes de mostrar el correspondiente al botón
+                document.querySelectorAll(".answer").forEach((p) => {
+                    p.style.display = "none";
+                });
+
+                // Muestra el párrafo correspondiente al botón clicado
+                const answer = button.nextElementSibling;
+                if (
+                    answer.style.display === "none" ||
+                    answer.style.display === ""
+                ) {
+                    answer.style.display = "block";
+                } else {
+                    answer.style.display = "none";
+                }
+            });
+        });
+    </script>
+</section>
+
+<section>
+    <h2 class="font-bold text-xl mb-2">¿Deseas contactarnos?</h2>
+    <h3 class="font-semibold">Sólo atenderemos solicitudes sobre:</h3>
+    <ul class="text-sm my-5">
+        <li>
+            - Mejoras en el servicio
+        </li>
+        <li>
+            - Errores ocacionales
+        </li>
+        <li>
+            - Contacto empresarial
+        </li>
+    </ul>
+    <style>
+        form {
+            input, textarea {
+                padding: 10px;
+                border-radius: 15px;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+    <form class="flex flex-col items-center text-black">
+        <input type="text" placeholder="Nombre" class="w-full">
+        <input type="email" name="" id="" placeholder="Email" class="w-full">
+        <textarea name="" id="" class="w-full h-[150px]" placeholder="Escribe tu contacto"></textarea>
+        <button class="bg-gray-900 w-full p-3 font-bold text-white text-sm rounded-xl">
+            Continuar
+        </button>
+    </form>
+</section>
