@@ -1,4 +1,17 @@
-<h2 class="text-lg font-bold my-3">Algunas categorias populares</h2>
+---
+const { categories } = Astro.props;
+
+// Función para transformar el texto, eliminando acentos y convirtiendo a minúsculas
+function slugify(text) {
+    return text
+        .normalize("NFD") // Descompone los acentos
+        .replace(/[\u0300-\u036f]/g, "") // Elimina los acentos
+        .toLowerCase() // Convierte todo a minúsculas
+        .replace(/\s+/g, "-"); // Reemplaza los espacios por guiones
+}
+---
+
+<h2 class="text-lg font-bold my-3">Algunas categorías populares</h2>
 <style>
     .categoria-grid {
         background-color: #323232;
@@ -8,12 +21,16 @@
     }
 </style>
 <ul class="grid grid-cols-2 gap-2 lg:grid-cols-4 w-full">
-    <li class="categoria-grid">Logística</li>
-    <li class="categoria-grid">Tecnología</li>
-    <li class="categoria-grid">Marketing</li>
-    <li class="categoria-grid">Finanzas</li>
-    <li class="categoria-grid">RRHH</li>
-    <li class="categoria-grid">Educación</li>
-    <li class="categoria-grid">Salud</li>
-    <li class="categoria-grid">Ingeniería</li>
+    {
+        categories
+            .filter((category) => category && category.trim() !== "") // Filtrar categorías vacías
+            .map((category) => {
+                const link = `/categoria/${slugify(category)}`; // Aplica la función slugify
+                return (
+                    <a href={link}>
+                        <li class="categoria-grid">{category}</li>
+                    </a>
+                );
+            })
+    }
 </ul>
