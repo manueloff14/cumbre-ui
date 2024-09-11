@@ -1,0 +1,19 @@
+---
+const { categorias, categoria } = Astro.props;
+---
+
+<div class="w-full text-center my-10">
+    <h1 class="font-bold text-3xl">{categoria}</h1>
+</div>
+
+<ul>
+    {categorias.map((job) => (
+        <li class="bg-gray-900 mb-3 p-3 rounded-xl text-sm">
+            <a href={`/empleo/${job.id}`}>
+                <h2 class="text-lg font-bold mb-3">{job.title}</h2>
+                <p>{job.company}</p>
+                <p>{job.location}</p>
+            </a>
+        </li>
+    ))}
+</ul>
