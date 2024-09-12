@@ -4,7 +4,6 @@ const { categories } = Astro.props;
 // Función para transformar el texto, eliminando acentos y convirtiendo a minúsculas
 function slugify(text) {
     return text
-        .normalize("NFD") // Descompone los acentos
         .replace(/[\u0300-\u036f]/g, "") // Elimina los acentos
         .toLowerCase() // Convierte todo a minúsculas
         .replace(/\s+/g, "-"); // Reemplaza los espacios por guiones

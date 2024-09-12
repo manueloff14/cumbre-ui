@@ -59,6 +59,14 @@ let altImg = `Imagen de ${blog.company}`
                     <tbody>
                         <tr>
                             <td class="border-b border-gray-700 px-6 py-3"
+                                >Fuente</td
+                            >
+                            <td class="border-b border-gray-700 px-6 py-3"
+                                ><a href=`https://${blog.jobDetails.fuente}`>{blog.jobDetails.fuente}</a></td
+                            >
+                        </tr>
+                        <tr>
+                            <td class="border-b border-gray-700 px-6 py-3"
                                 >Título</td
                             >
                             <td class="border-b border-gray-700 px-6 py-3"
@@ -94,7 +102,15 @@ let altImg = `Imagen de ${blog.company}`
                                 >Fecha de Publicación</td
                             >
                             <td class="border-b border-gray-700 px-6 py-3"
-                                >{blog.publish_date}</td
+                                >{blog.jobDetails.date_pub}</td
+                            >
+                        </tr>
+                        <tr>
+                            <td class="border-b border-gray-700 px-6 py-3"
+                                >Fecha de Vencimiento</td
+                            >
+                            <td class="border-b border-gray-700 px-6 py-3"
+                                >{blog.jobDetails.date_ven}</td
                             >
                         </tr>
                         <tr>
@@ -164,6 +180,14 @@ let altImg = `Imagen de ${blog.company}`
                 <tbody>
                     <tr>
                         <td class="border-b border-gray-700 px-6 py-3"
+                            >Fuente</td
+                        >
+                        <td class="border-b border-gray-700 px-6 py-3"
+                            ><a href=`https://${blog.jobDetails.fuente}`>{blog.jobDetails.fuente}</a></td
+                        >
+                    </tr>
+                    <tr>
+                        <td class="border-b border-gray-700 px-6 py-3"
                             >Título</td
                         >
                         <td class="border-b border-gray-700 px-6 py-3"
@@ -199,7 +223,15 @@ let altImg = `Imagen de ${blog.company}`
                             >Fecha de Publicación</td
                         >
                         <td class="border-b border-gray-700 px-6 py-3"
-                            >{blog.publish_date}</td
+                            >{blog.jobDetails.date_pub}</td
+                        >
+                    </tr>
+                    <tr>
+                        <td class="border-b border-gray-700 px-6 py-3"
+                            >Fecha de Vencimiento</td
+                        >
+                        <td class="border-b border-gray-700 px-6 py-3"
+                            >{blog.jobDetails.date_ven}</td
                         >
                     </tr>
                     <tr>

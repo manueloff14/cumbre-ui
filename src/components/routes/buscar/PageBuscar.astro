@@ -13,7 +13,11 @@ import Resultados from "./Resultados.astro";
         <Resultados />
     </div>
     <!-- Contenedor de la imagen de carga -->
-    <div id="loading" style="" class="text-center mt-6 flex justify-center my-10">
+    <div
+        id="loading"
+        style=""
+        class="text-center mt-6 flex justify-center my-10"
+    >
         <img src="/img/loading.gif" alt="Cargando..." class="w-[30px]" />
     </div>
 </div>
@@ -28,7 +32,7 @@ import Resultados from "./Resultados.astro";
         socket.emit("getJobsAndCategories");
 
         $("#searchInput").prop("disabled", true);
-        showLoading()
+        showLoading();
 
         // Mostrar la imagen de carga cuando se envíe una solicitud al servidor
         function showLoading() {
@@ -55,6 +59,13 @@ import Resultados from "./Resultados.astro";
             const categoriesList = $("#categoriesList");
             categoriesList.empty();
 
+            function slugify(text) {
+                return text
+                    .replace(/[\u0300-\u036f]/g, "") // Elimina los acentos
+                    .toLowerCase() // Convierte todo a minúsculas
+                    .replace(/\s+/g, "-"); // Reemplaza los espacios por guiones
+            }
+
             if (data.error) {
                 categoriesList.append(`<li>${data.error}</li>`);
             } else {
@@ -62,8 +73,13 @@ import Resultados from "./Resultados.astro";
                 $.each(
                     data.categories.slice(0, 10),
                     function (index, category) {
+                        const link = `/categoria/${slugify(category)}`; // Aplica la función slugify
                         categoriesList.append(
-                            `<li class="bg-gray-800 p-3 rounded-xl border-2 border-gray-700">${category}</li>`,
+                            `
+                            <a href="${link}">
+                                <li class="bg-gray-800 p-3 rounded-xl border-2 border-gray-700">${category}</li>
+                            </a>
+                            `,
                         );
                     },
                 );
