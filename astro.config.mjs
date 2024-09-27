@@ -5,7 +5,6 @@ import vercel from "@astrojs/vercel/serverless";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://cumbre-ui.github.io',
   integrations: [tailwind()],
   output: 'server',
   adapter: vercel()
